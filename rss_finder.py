@@ -44,13 +44,20 @@ if __name__ == "__main__":
     import sys
 
     if len(sys.argv) != 2:
-        print("Usage: python rss_finder.py [URL]")
+        print("Usage: python rss_finder.py [URL_FILE]")
         sys.exit(1)
 
-    url = sys.argv[1]
-    feed_url = find_feed(url)
-    if feed_url:
-        print(f"Feed URL found: {feed_url}")
-    else:
-        print("No feed URL found.")
+    url_file = sys.argv[1]
+    try:
+        with open(url_file, 'r') as file:
+            urls = [line.strip() for line in file.readlines()]
+    except Exception as e:
+        print(f"An error occurred while reading the file: {e}")
+        sys.exit(1)
 
+    for url in urls:
+        feed_url = find_feed(url)
+        if feed_url:
+            print(f"{feed_url}")
+        else:
+            print(f"No feed URL found for {url}.")
