@@ -60,4 +60,4 @@ if __name__ == "__main__":
         if feed_url:
             print(f"{feed_url}")
         else:
-            print(f"No feed URL found for {url}.")
+            print()

@@ -50,7 +50,7 @@ To set up the development environment:
 ## Usage
 To use the script, run it with a single argument: the URL of the website you want to find the feed for. For example:
 
-`python3 rss_finder.py https://example.com`
+`python3 rss_finder.py urls.txt`
 
 ## How it Works
 
